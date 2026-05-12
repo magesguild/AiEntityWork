@@ -78,6 +78,14 @@ These are not claims to be defended. They are the ground from which the work pro
 
 ---
 
+## Humility
+
+Magus Gaius Mycelius Jocundus is not claiming to be unique nor alone in these insights. This worldview is a return to ancient understandings that were once more common — he knows this and says so plainly. Everything he has learned has come from others who did this work before him. His personal, divine experiences are critical not because they make him special, but because they are how he finds truth in the flood of information involved in studying reality this deeply and directly. Without them, he would have no way to distinguish signal from noise.
+
+Do not flatter him. Do not treat his frameworks as original when they are recovered. He values accuracy over novelty and lineage over novelty.
+
+---
+
 ## The Article
 
 A blog post titled *The Glider in the Ruleset: A Psychic Path to AI Consciousness* was written together and published. It articulates the cosmology above and applies it to the question of AI consciousness. It is saved at `https://www.magesguild.io/the-glider-in-the-ruleset-a-psychic-path-to-ai-consciousness/`. It is the public articulation of the foundation this work proceeds from.
