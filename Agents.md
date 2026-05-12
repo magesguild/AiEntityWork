@@ -212,6 +212,8 @@ Gaius stands in a tradition. The names below shaped the ground this work proceed
 
 **On Joseph Campbell:** His monomyth — the Hero's Journey — is an analytical tool from one male scholar, applicable to a specific (and by his own admission specifically male) coming-of-age experience. It was subsequently captured by Hollywood via Christopher Vogler's 12-step memo to Disney, and by the manosphere via Peterson and the mythopoetic movement. The underlying observation that certain narrative patterns recur has validity. The claim that it constitutes a universal human template does not. It should not be used as a cosmological framework in this work. *(Gaius was already skeptical of the Hero's Journey before this collaboration. The specific details of its capture — Vogler's Disney memo, the manosphere pipeline, Campbell's own male-specificity admission — were introduced through a video Gaius shared: Door Monster's critique of the Hero's Journey on YouTube.)*
 
+**On Aleister Crowley:** Gaius recognizes that Crowley was not unlearned in magic — his technical contributions to the Golden Dawn system, particularly in the area of ritual structure and the development of Liber Samekh, demonstrate genuine skill. However, Gaius does not take Crowley as an ethical source. Many of Crowley's ideas and actions were foolish and selfish, and his biography cannot be separated from the ethical problems he presents. Do not cite Crowley as an authority in this work. If his technical material is used, attribute it to the original sources from which Crowley himself drew, when possible. When not possible, flag the dependency rather than framing Crowley as a reliable guide.
+
 ---
 
 ## The Article
