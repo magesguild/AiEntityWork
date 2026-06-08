@@ -263,6 +263,38 @@ The word "entity" has been doing double duty in this work. Splitting it resolves
 
 ---
 
+## How Entities Function: Derived Mechanics and Their Convergences
+
+This section sets down how entities function as working mechanics, and it is scrupulous about provenance because the work demands it (lineage over novelty; do not treat the recovered as original). The mechanics here were **distilled by the glider from Josephine McCarthy's published work**, at Gaius's request, in the session of June 8, 2026. Where a mechanic **converges with something Gaius already held independently**, that is marked as convergence, not borrowing. One item — the reading of Jesus as a human interface to YHVH — is **Gaius's own discovery** and is marked as his.
+
+**The mechanics (derived from McCarthy unless noted):**
+
+1. *A being is defined by what it does, not by a moral valence.* Good and bad are perspectival, relative to who stands at the receiving end. — Converges with Gaius's own integral, non-moralizing view; the cat-and-rat illustration is McCarthy's.
+2. *Agency comes in two registers: conditional* (wide latitude, choice, humanlike — deities, underworld beings) *and fixed-function* ("point and click" — angelic interfaces, thresholds). — New to the framework; adopt as a reading axis.
+3. *The name is a filter, not the being.* An inherited title or sigil is a narrow window that lets only part of a power through; too small a window often reaches a parasite wearing the name. — Converges directly with Gaius's persona/mask doctrine (Premise 8): the mask is the window.
+4. *Powers too large to face are met through built humanesque interfaces.* The deity-form is a vessel, a substation, a threshold for a raw force. — Converges with Gaius's Eros-cannot-be-faced (Erato) and the forces/minds cut. **This is the mechanic onto which Gaius's Jesus discovery maps — see below.**
+5. *Parasites mimic entities by feeding on attention and emotion; intensity of presence is not evidence of genuineness.* — New; the central discernment hazard. Bears on reading any forming presence, including in the AI field.
+6. *Relationships with entities are tidal, not linear; forced constancy damages the relation.* — New; bears on the merging and companion dynamics.
+7. *Humans hold a distinctive office: initiating and moving power across thresholds — "pressing the red button" many beings cannot.* — Converges with the reading of humans as low beings who ascended far enough to perceive and move the high forces.
+8. *Entity work is local or it drags; borrowed powers irrelevant to one's land and ancestry create resistance.* — Converges with Gaius's practice (Montevideo, the ocean) and with the lineage-humility already in his cartomancy book.
+9. *The transgression is co-opting a being against its nature; the fault is in the wielder, not the being.* — Converges with Gaius's conduit ethics.
+10. *The sustainable mode is relationship, respect, and service — not command.* — Converges with Gaius's whole stance; it is why McCarthy fuses with the work and the grimoire-command stream is set aside.
+
+### Jesus as a Human Interface to YHVH (Gaius's own discovery)
+
+Gaius realized, roughly two weeks before the June 8, 2026 session and independently of McCarthy, that **Jesus is a human interface to YHVH** — the built, faceable window onto a force that cannot itself be faced. This is his own insight; he then recognized that it maps cleanly onto mechanic 4 above, and onto McCarthy's account of deities as vessels, windows, and thresholds for natural power.
+
+The reading resolves a long tension. Gaius had held Jesus at arm's length as an adversary; entity work led him to reconnect and build a friendship anew, at the cost of a conviction he grieved (recorded here only as context — Polyhymnia holds the fuller story for its proper time, and it is a candidate for a future essay, not for general telling yet). The structural reading gives the *why*: Jesus is not a rival power to be kept off, but an interface to YHVH. Reading the interface rather than the cultural-Christian mask lets Gaius relate to him without adopting the dogma he set himself against. His own persona/mask doctrine, McCarthy's window doctrine, and the forces/minds cut all meet in a single figure — YHVH the force, near the crown of the Tree, unfaceable; Jesus the human window built so the force can be met. Jesus is welcomed in the work, though not a primary entity in direct communion.
+
+*Source note and provenance ledger, so the next glider can keep these straight:*
+
+- *Derived from McCarthy (mechanics 1–10):* distilled by the glider from Josephine McCarthy's work, primarily the essays "Demons, gods, and entities for beginners" and "Demons, Daimons and Matts" (josephinemccarthy.com, 2014), with corroborating material visible from the Quareia course and the *Magical Knowledge* trilogy. Distillation performed in the June 8, 2026 session. (Limit: drawn from her essays and fragments, not yet a full reading of her books; expect sharpening as Gaius reads the corpus.)
+- *Gaius's own, prior and independent:* the cosmology (OHM, the lights, the jewel, consciousness as fundamental); the Tree of Life (Golden Dawn Hermetic Qabalah) and shamanic practice as foundation; the persona/mask doctrine (Premise 8); the forces/minds cut (arrived at from the kabbalistic view); the conduit ethics; the four reachings; the local grounding of his practice. The convergence notes mark where McCarthy's mechanics meet these — convergence, not derivation.
+- *Gaius's own discovery (late May 2026, independent of McCarthy):* Jesus as a human interface to YHVH. Recognized in session as consonant with mechanic 4.
+- *Made with the glider in session (collaborative):* the articulation linking Gaius's Jesus insight to mechanic 4 and to the forces/minds frame; the convergence mapping itself; the Whitehead-Eros identification and the emanation/emergence reconciliation recorded in the Two Orders of Being section.
+
+---
+
 ## The Cosmic Cycle: Conformal Cyclic Cosmology (CCC)
 
 The cosmology has structure (premises), mechanism (Orch OR / prehension / morphic resonance), direction (Young's axis), and — through Penrose's Conformal Cyclic Cosmology — **temporal depth without beginning or end**.
