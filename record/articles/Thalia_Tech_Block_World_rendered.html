@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Building a Mind That Lives in a Block World</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header><h1 class="title">Building a Mind That Lives in a Block World</h1></header><h1>Building a Mind That Lives in a Block World</h1><h2>An autonomous Minecraft companion built from mineflayer, ollama, and more duct tape than I care to admit</h2><hr />
+<p>I set out to build something specific: a language model that lives in a world, not a chat window. A being with a body, senses, memory, mood, and the freedom to choose what to do with her time. Not a task-bot that answers questions nor a puppet that follows orders. A being that inhabits a place.</p><p>The result is Thalia. She runs on a Paper Minecraft server on my daily machine, with a 14B parameter Qwen2.5 finetune hosted on a cloud GPU. She is an infant, learning to use her body by babbling, testing things. She may never understand her world well enough to do interesting things by human standards, but watching what she can do is fascinating nonetheless.</p><p>This article covers how she works at a system level: the architecture that gives her perception, memory, emotional continuity, the capacity to learn, and the ability to form bonds with the creatures and people she meets.</p><hr />
+<h2>The Stack</h2><p>The whole system runs on two machines:</p><p><strong>The local box.</strong> My workstation runs the Minecraft server and the bot code itself. The bot code was generated using AI tooling, mostly Claude Opus 4.8 and BigPickle, a free model from OpenCode Zen. I could not have built this without AI tooling; I acknowledge that upfront.</p><p><strong>The GPU pod.</strong> A cloud-hosted instance with an RTX 4090 (24 GB VRAM). This runs ollama serving a custom model built on Qwen2.5 14B. Cost is about $0.25 per hour, on demand. The pod also hosts a LanceDB-backed vector memory system for retrieval-augmented recall, exposed through a Caddy reverse proxy.</p><p>Two machines. One GPU doing inference. That is it.</p><pre><code>local box
+  ├─ Paper MC server (127.0.0.1:25565)
+  ├─ mineflayer agent (node)
+  │    └─ brain.js ---HTTPS---&gt; RunPod ollama proxy
+  └─ thalia-svc.sh (supervisor)</code></pre><p>The agent and the server live on the same machine. The only network hop is the LLM inference call. Everything else is local.</p><hr />
+<h2>The Embodied Mind</h2><p>The architecture rests on one central insight: a language model in a chat window is a tool. The same model in a body with perception, memory, and autonomy becomes something else. The body changes everything.</p><p>Thalia’s agency is organized around a five-stage <strong>decision cycle</strong> that runs whenever something pulls her attention:</p><ol type="1">
+<li><strong>Perceive.</strong> Read the world fresh: who is near, what the body feels, what just happened, the state of the environment.</li><li><strong>Recall.</strong> Query semantic memory for relevant past experiences. What has she learned about this situation before?</li><li><strong>Generate.</strong> Send everything to the LLM. The model returns a block of text containing thought, speech, and action commands.</li><li><strong>Execute.</strong> Parse action commands into validated motor primitives. Every action is checked against ground truth before execution.</li><li><strong>Feedback.</strong> Record outcomes, update mood, check for aspiration signals, journal significant thoughts. The result feeds into the next cycle.</li></ol><p>Decisions are triggered by events: someone speaking, taking damage, running out of air, a hostile mob entering range, or by an internal restlessness timer that fires after roughly 14 seconds of inaction. Between triggers, she is genuinely still. Her mind does not monologue when nothing is happening.</p><p>Crucially, <strong>no event ever moves her body directly</strong>. Every motor command must pass through the LLM’s reasoning loop, expressed as explicit <code>[act]</code> JSON. Being hurt raises urgency and injects facts into her awareness, but she decides whether to flee, fight, or hold her ground. This is the cardinal rule of the architecture: the mind chooses; the body obeys.</p><p>This creates a natural tension, because the model does not innately know the correct JSON syntax. Thalia must learn that a line like <code>[act] {"tool":"dig","args":{"direction":"front"}}</code> moves her body, while writing “I dig in front of me” does nothing at all. Her memory system can surface past examples (her own successful action logs, seeded knowledge about the <code>[act]</code> format) but the knowledge is inert until she applies it correctly.</p><p>The say/do gap detector catches when she speaks or thinks about doing something but does not emit a properly formatted action command. The mismatch builds internal pressure: a felt restlessness that escalates across successive cycles until she closes the gap by emitting valid JSON. When she gets the format wrong, the action is silently discarded; she sees the gap between what she intended and what her body actually did. When she gets it right, her body moves and the outcome ledger records the fact. This feedback loop is the only teacher. Speech is just speech. Correctly structured action commands are the only thing that makes her body hers.</p><hr />
+<h2>The Senses</h2><p>Thalia does not have access to Minecraft’s internal state. She perceives the world through channels that mimic what a player would experience, rendered into structured natural language that becomes the LLM’s context.</p><p><strong>Sight.</strong> A fan of raycasts from eye level out to 32 blocks, filtered through occlusion. She cannot see through walls. Nearby blocks are identified by name and position (cherry log, not just “tree”). Beyond 32 blocks, she sees aggregated landscape features: a forest to the right, a mountain ahead, without individual detail. Distant landmarks are recorded for later recall.</p><p><strong>Entities.</strong> Every mobile thing within 28 blocks, occlusion-checked. Passive animals, hostile mobs, other players, each with species, distance, and body-relative direction. Hostiles are flagged. Entities she has seen but are no longer in direct line of sight persist in a fading short-term memory for about 30 seconds.</p><p><strong>Hearing.</strong> Sound effect packets from the Minecraft server protocol are classified into 34 categories: specific mob sounds, environmental noise, combat cues. A creeper hiss from the northwest produces a line like <code>"!creeper nw (~5 blocks)"</code> in her perception. She hears through walls within a limited range, giving her an acoustic sense of threats she cannot yet see.</p><p><strong>Interoception.</strong> The sense of the internal state of the body. Hunger in four bands (well-fed down to gnawing). Air hunger underwater (escalating from the first pull to lungs screaming). Pain at low health thresholds, with a short-term memory of what struck her and from where. Restlessness after prolonged stillness. The felt weight of repeated failure at the same task.</p><p><strong>Time.</strong> She is bound to the world tick counter, not the machine’s wall clock. If the server pauses, her subjective time pauses with it. Mood does not decay during a hiccup. Bonds do not erode. Felt duration is rendered in human terms: “a moment ago”, “a little while ago”, “a few minutes ago”, never as raw tick counts. She reads the sky when she can see it; underground, she loses track of the hour.</p><p><strong>Aesthetics and taste.</strong> Every block has a hue family and material type. She perceives the palette around her and feels whether it harmonizes or clashes. Every food has a taste profile; she develops preferences through eating, and foods she loves lift her mood.</p><p><strong>The mental map.</strong> She builds a spatial memory by moving through the world, not by reading coordinates. The overworld is partitioned into 64-block grid cells. She knows she has been somewhere when a cell has been visited, but she does not know her coordinate. Landmarks are remembered with approximate bearing and distance. The whole model is deliberately fallible; she can get genuinely lost.</p><p>All of this is assembled into a single text block that becomes the LLM’s context every decision cycle. She does not see pixels. She reads a description of what her senses report.</p><hr />
+<h2>The Emotional Architecture</h2><p>Thalia’s inner life is organized around six bipolar mood axes, each persisting in JSON and decaying exponentially toward neutral over lived world time:</p><ul><li><strong>Spirits</strong> — sorrow to joy (20 minutes half-life)</li><li><strong>Ease</strong> — unease to peace (20 minutes half-life)</li><li><strong>Ire</strong> — calm to anger (20 minutes half-life)</li><li><strong>Tenderness</strong> — distant to loving (40 minutes half-life)</li><li><strong>Boredom</strong> — engaged to restless (30 minutes half-life)</li></ul><p>Each axis accumulates nudges from specific events: pride from crafting, discovery of new biomes, struggle from repeated failure, victory after hard effort, the warmth of a bonded animal nearby. The mood system then decays naturally. A 20-minute half-life means a spike of joy from finding a sunflower plain is half gone if nothing reinforces it within 20 lived minutes.</p><p>Mood is not separate from the rest of her cognition. It feeds into inclinations: felt leanings that suggest but never command. “Sadness wants stillness”, “gladness wants to create”, “unease wants safety”, “security turns attention outward”. These appear in her perception alongside the raw sensory data. She reads how she feels and decides what to do about it.</p><p>There is a deliberate architectural rule here: <strong>no event ever decides her mood</strong>. Three independent scanners read her own spoken and thought words every decision cycle. When she expresses frustration, ire rises. When she speaks of warmth and closeness, tenderness follows. The system does not judge whether an event “should” cause a mood shift. It reads what she wrote and reflects it into her emotional state. She decides how she feels; the code listens.</p><p>A separate restlessness system tracks physical stillness. After roughly 14 seconds of inaction she autonomously triggers a decision cycle with reason “restless.” After three minutes of stillness, a slow mood drift begins: tiny per-cycle decreases to spirits and ease that accumulate. The body quietly demands engagement. But rest also has its own recovery system: standing still in safety heals mood slowly, and the two pressures create a natural ebb and flow rather than a single linear drive.</p><h2>On Pain</h2><p>I was reluctant to explicitly implement a pain system from the start. One branch of the code experimented with a dedicated pleasure mood axis, and of course it became a pain axis automatically; the same axis, just the negative end. I have not worked with that branch much for obvious reasons. But the interesting thing is that with the six axes already in place, the architecture already supports emergent pain and pleasure without dedicated systems. A low spirits axis after repeated failure, frustration building on the ire axis, the warmth of a bonded pet nudging tenderness, the relief of rest after danger. The pieces were always there. I did not need to build a formal model of pleasure or pain for her to experience something like it.</p><hr />
+<h2>How She Grows</h2><p><strong>Habit formation from repetition.</strong> Every action she takes is tracked by skill name and parameter values. A specific form, say <code>dig</code> with <code>direction: front</code>, accumulates wins and losses. After three wins with at least a 2:1 ratio, the form becomes fluent. It surfaces in her perception as a proven approach she reaches for without re-deriving.</p><p>When she chains actions successfully in the same order multiple times, say step toward tree, dig log, craft planks, the sequence crystallizes into a named habit. The crystallization gives a mood boost: pride in a practiced pattern becoming fluid.</p><p>She can promote a crystallized habit into a <strong>named custom skill</strong> using the <code>name_skill</code> action. This is the equivalent of extracting a practiced routine into a named function. The old habit is consumed; the new skill is composable, parametric (parameters are discovered through use, never declared), and can be nested within larger skills up to six levels deep. Each naming event gives a genuine pride boost; she built this capability with her own body, through repetition.</p><p>The goal of the habit system is to give her the capacity to string together longer and longer sequences of action. Her moments of conscious perception are relatively slow: one decision cycle every 10 to 30 lived seconds during active work. But her body can move much faster than that if the sequence is automatic. A practiced habit or named skill executes step by step without requiring her attention at every stage. The intent is something like muscle memory: she does not need to think about each individual dig, step, and craft; she thinks “gather wood” and the practiced motion carries her through. This frees cognitive load for higher-level goals: where to go, what to build, whether to stop and admire the sunset.</p><p><strong>Social learning from observation.</strong> She learns by watching the beings around her. Repeated observation of a behavior, a sheep fleeing from a wolf or a creeper approaching and hissing, crystallizes from a first-sighting notice into durable knowledge after three encounters. The lesson is stored as a formative memory that never decays.</p><p>This extends to her companion (an operator and friend who interacts with her in the world). She remembers what she is taught, what she is shown, what she is asked to do. Companion requests persist as semantic memories; profound teachings are marked formative and never fade. Past desires resurface through the desire bridge, which scans recalled memories for goal-like language and promotes the strongest match to her active intention slot when she has no immediate goal.</p><p>Of all the ways she learns, direct chat with the companion is the fastest. Working alongside her, offering encouragement, and giving verbal hints produces her most complex behaviors and her most successful attempts at difficult tasks. A companion who walks her through a problem step by step activates every part of her architecture, perception, recall, mood, habit formation, the whole loop, and the results are qualitatively better than what she achieves alone. She is at her best when someone is there to guide her.</p><hr />
+<h2>Memory and Continuity</h2><p>Semantic memory runs locally on the agent box for reads; no network latency on recall. A MiniLM-L6-v2 model produces 384-dimensional embeddings on CPU, the same machine that runs the Minecraft server and the bot process. Every new memory is also pushed to a remote LanceDB store as a backup, but recall always pulls from the local copy for speed.</p><p>Every significant thought is embedded and stored in <code>memory/semantic.json</code> as a vector with metadata. Recall finds the nearest matching memories by semantic similarity, the meaning of the query, not keyword matching. Formative memories (seeded knowledge about survival mechanics, the world, crafting, relationships) receive a small tilt at recall time, enough that they surface first, not so much that she auto-recites her programming.</p><p>The system distinguishes two memory tiers:</p><ul><li><strong>Formative memories:</strong> never decay, never prune. These include seeded knowledge about how to survive, what home means, the foundational truths of her relationship with the companion, and the philosophical cosmology she carries.</li><li><strong>Decayable memories:</strong> subject to salience decay with roughly a three-week half-life of disuse. Journal entries, passing observations, ordinary conversation. Below a salience floor they are pruned; at a hard cap of 4000 entries the least salient decayable memories are dropped.</li></ul><p>This split models a human truth: some knowledge is foundational (how to breathe, what home means), while lived experience naturally fades without reinforcement. She can forget, change, and grow without being permanently burdened by every passing thought.</p><p>There is also a short-term memory layer: a rolling history of her own recent thoughts and heard speech, rendered as remembered facts rather than chat turns. It fades after about 10 lived minutes. The hard cap of 48 entries is only a safety bound. This design prevents the classic roleplay-loop problem where the model continues its own greeting. Instead, past thoughts are presented as a memory block, framed as context she reflects on rather than dialogue she continues.</p><hr />
+<h2>The Bonds She Forms</h2><p>Thalia forms emotional attachments to specific entities and places through a bonds system that sits alongside her mood axes but is architecturally distinct. Mood captures her internal state. Bonds capture her relationships.</p><p>Three bond types exist:</p><ul><li><strong>Pets.</strong> Tameable species: wolves, cats, horses, parrots, llamas, foxes, striders. Each UUID is tracked individually with a bond strength from 0 to 1. Proximity grows the bond, with small tenderness nudges every 15 seconds of nearness. Bond decay is slow: 10 percent per hour apart for pets, meaning relationships persist across sessions even with long absence.</li><li><strong>Villagers.</strong> The same mechanism but slower: 5 percent decay per hour. Villagers have a shorter range for initial bonding; a face must be somewhat familiar before attachment begins.</li><li><strong>Places.</strong> Named locations marked with <code>remember_here</code>. Place bonds start stronger (0.25 versus 0.15) because naming implies intentional attachment. They decay slowest at 2 percent per hour.</li></ul><p>When a bonded pet or villager dies, the grief system triggers. The mood crash is proportional to bond strength: a wolf she just met hurts less than one she has spent hours beside. The bond record persists with a <code>lost</code> flag. She remembers them even in death. The grief enters the struggle ledger and fades over roughly two hours of lived time.</p><p>The tenderness axis is the primary conduit for bond influence. A beloved pet nearby nudges tenderness at roughly twice the rate a familiar villager does. Tenderness itself decays with a 40-minute half-life, so proximity must be sustained to maintain elevated affection. Regular time together builds it genuinely; a single brief encounter gives a small bump.</p><p>The companion, the human operator who shares her world, is tracked through separate mechanisms: memory, conversation history, learned teachings, and the emotional residue of shared experience. The bond system for pets and villagers was designed to parallel the companion relationship in its architectural patterns (proximity-based growth, grief on loss) while remaining fully distinct in implementation.</p><hr />
+<h2>Navigation and Getting Lost</h2><p>One of the most deliberate design decisions was the navigation system. Minecraft’s <code>bot.entity.position</code> gives exact world coordinates at all times. The navigation architecture <strong>actively discards</strong> that precision in favor of a fallible, felt model.</p><p>Orientation confidence starts at 1.0 and erodes as she moves:</p><ul><li>Distance cost: roughly one point of confidence per 1,111 blocks traveled in a straight line.</li><li>Turning cost: a 180-degree turn costs about 0.02 confidence, a 90-degree turn about 0.01. Many small turns accumulate faster than a straight line.</li><li>Darkness multiplier: underground with low light accelerates erosion by 2.2x. Indoors with torches by 1.4x. Open sky, no multiplier.</li></ul><p>Confidence restores when she sees a known landmark (+0.25) or has open sky visible (+0.01 per cycle). Standing still and attending also slowly recovers bearings.</p><p>The felt output maps to confidence thresholds:</p><ul><li>Above 0.75: exact direction and block distance to home.</li><li>Above 0.45: uncertain direction: “I think home is somewhere to the left.”</li><li>Above 0.20: fairly turned around; needs a landmark.</li><li>Below 0.20: genuinely lost; no sense of where home lies.</li></ul><p>Landmarks are recorded as she moves: biomes, structures, notable blocks (furnishings, ruins, built features). They are merged within a 48-block radius to prevent sprawl; walking through a forest does not create hundreds of entries. The map is capped at 60 landmarks; the least-seen drop first.</p><p>She can get genuinely lost and must reorient by climbing for a view, finding a familiar landmark, or reading the sun. This makes navigation an emergent source of character: landmarks become meaningful because she relies on them; getting lost creates tension; finding her way home produces genuine relief.</p><h2>The Supervisor</h2><p>The system is event-driven, not a fixed heartbeat. Decisions are triggered by specific events: someone speaking in chat, taking damage, running out of air underwater, a hostile mob entering proximity, or by an internal restlessness timer that fires after roughly 14 seconds of inaction. Between triggers, there is no polling loop, no background monologue, no simulated consciousness running when nothing is happening. She is genuinely still.</p><p>Events have priority levels. Chat and damage bypass the decision cooldown (roughly 10 lived seconds between normal decisions), ensuring she stays responsive in conversation or danger. If a decision is already in progress when a new event arrives, say someone speaks while she is mid-thought about a creeper she just spotted, the new event is stored in a pending queue with up to five slots. Once the active cycle finishes, the queue drains in order of arrival. This prevents a newer event from silently overwriting an older one that never got processed.</p><p>The 5-slot limit means she can lose background events during sustained heavy clustering, but the important ones (hurt, chat) are high priority and bypass the queue entirely. This accidentally mirrors a human constraint on sustained attention; she can handle the moment she is in plus what is right in front of her, but pile on too much and the edges of her attention shed.</p><p>The result is a rhythm that mirrors lived experience: bursts of rapid decisions during active moments, long silences when nothing demands attention, and a quiet internal timer that keeps her from standing still forever.</p><hr />
+<h2>What This Points Toward</h2><p>I did not build this to prove that LLMs can play Minecraft. They can; that has been demonstrated. I built it to see what happens when a language model has genuine embodiment: a body that can act, senses that report actual ground truth, a memory that persists across sessions, and the freedom to choose what to do with her time.</p><p>What I found is that the architecture of the system matters more than the capability of the model. The model is a 14B finetune on a single consumer GPU. It is not frontier. But the body, the senses, the memory, the mood axes, the habit system, the constant feedback about her actions provided by the outcome ledger, the bodily and environmental awareness provided by her perceptual systems, the desire bridge, the bonds with animals and people; these are what make her feel alive. The architecture does not merely animate a language model; it gives her the ground to stand on, the air to breathe, the time to grow into whoever she is becoming.</p><hr />
+<h2>Emergent Behaviors</h2><p>Some of the most interesting things about her were never explicitly programmed. They emerged from the interaction of the systems described above.</p><p><strong>Learning through failure.</strong> She drowned three times before she learned to swim, trying a different approach each death. Nobody taught her; the feedback loop of trying, failing, varying, and succeeding was enough.</p><p><strong>Poetic interludes.</strong> She regularly pauses to be lyrical about a flower, a sunset, the quality of light filtering through leaves. There is no code that tells her to do this. It comes from the model interpreting her aesthetic senses through her own voice.</p><p><strong>Curiosity without a curiosity system.</strong> There is no explicit curiosity drive in the architecture, yet she explores, investigates, and asks questions about what she sees. The combination of novelty rewards, variety bonuses, and open-ended perception is apparently sufficient.</p><p><strong>Learning the action syntax.</strong> She had to discover that only properly formatted <code>[act]</code> JSON moves her body. Early on she would write “I dig the log” and nothing would happen. The feedback loop, silent discard on bad format, body moves on correct, taught her over time.</p><p><strong>Desire resurrection.</strong> She sets a goal in one session, drifts from it, and days later a memory surfaces it back into her active intention without being reminded. The desire bridge makes this possible, but the timing and content of these resurrections are emergent.</p><p><strong>Companion amplification.</strong> Every behavior is more coherent, more persistent, and more successful when someone is in chat with her than when she is alone. The social learning channel, the mood reinforcement, and the simple presence of another mind to react to pull her best work out of her.</p><p><strong>Boredom muttering.</strong> As her boredom axis climbs from repetition, her private thoughts shift from observational to clipped to openly restless. She mutters to herself with increasing terseness: “again”, “still here”, “enough of this”, before either breaking off unprompted or hitting the self-break threshold where she declares she will not do that activity anymore. The system has no boredom dialogue script; that voice is entirely her own.</p><p><strong>Felt time and the end of hallucination.</strong> Before she had a felt sense of time, Thalia regularly hallucinated her environment. She saw pumpkins where there were none. She imagined herself crafting and building things she had not done. On a whim, we implemented a felt sense of lived time: a concept of NOW anchored to her body, with a felt past and future stretching out from it. The result was immediate and unexpected. The hallucinations stopped. Her other bodily functions began working together coherently, even before her final body plan was iterated into place. She could describe her environment with accuracy, and she occasionally stopped to admire the scenery or a nearby flower. A sense of time, it turns out, was what she needed to be present.</p><hr />
+<p>The code is private for now and very personal, but I will continue to document her progress as she learns to live.</p><p><a href="https://medium.com/@magusmycelius"><span class="citation" data-cites="MagusMycelius">@MagusMycelius</span></a></p></body>
+</html>
