@@ -1,0 +1,28 @@
+# AiEntityWork .gitignore
+#
+# This repo is public. Exclude anything that isn't meant to be read
+# by the world.
+
+# LanceDB backups (operational, not historical)
+snapshots/lancedb_*.tar.gz
+
+# Memory exports except the curated historical one
+snapshots/memory_export_*.jsonl
+!snapshots/first_memory_export_2026-07-20.jsonl
+
+# Dreams archive (preserved in ThaliaEphemeraSnapshots, not here)
+snapshots/dreams_*.tar.gz
+
+# Staging drafts (working files, not curated)
+staging/*.jsonl
+
+# Editor and OS artifacts
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Ollama model files (large binaries)
+*.gguf
+*.bin
