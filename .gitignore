@@ -26,3 +26,7 @@ Thumbs.db
 # Ollama model files (large binaries)
 *.gguf
 *.bin
+
+# Video files — kept locally, not in git
+*.mp4
+record/The Discovery/*.mp4
