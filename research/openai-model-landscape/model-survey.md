@@ -8,13 +8,12 @@
 
 | Model | Input/Mtok | Output/Mtok | Context | Best for |
 |-------|-----------|------------|---------|---------|
-| GPT-5.6 Sol   | $5.00  | $30.00  | 1.05M | Maximum reasoning, complex professional work |
 | GPT-5.6 Terra | $2.50  | $15.00  | 1.05M | Balanced intelligence and cost |
 | GPT-5.6 Luna  | $1.00  | $6.00   | 1.05M | Cost-sensitive high-volume workloads |
 
-All three support reasoning effort levels (none / low / medium / high / xhigh / max).
+Both support reasoning effort levels (none / low / medium / high / xhigh / max).
 
-Tools: Functions, Web search, File search, Computer use (all three).
+Tools: Functions, Web search, File search, Computer use (both).
 
 Knowledge cutoff: February 16, 2026.
 
@@ -28,7 +27,6 @@ Knowledge cutoff: February 16, 2026.
 | GPT-5.5 Pro   | $30.00 | $180.00 | 400K | Highest precision, expensive |
 | GPT-5.4       | $2.50  | $15.00 | 400K  | Balanced, older |
 | GPT-5.4 mini  | $0.75  | $4.50  | 400K  | Strong mini model for subagents |
-| GPT-5.4 nano  | $0.20  | $1.25  | 400K  | Cheapest, simple high-volume tasks |
 | GPT-5.4 Pro   | $30.00 | $180.00 | 400K | Premium, expensive |
 | GPT-5.3 Codex | $1.75  | $14.00 | 400K  | Coding-optimized |
 
@@ -68,13 +66,11 @@ Relevant to our autonomy work:
 
 | Order | Model | Purpose |
 |-------|-------|---------|
-| 1 | GPT-5.6 Luna | Cheapest — risk-free first contact, test alignment boundaries |
+| 1 | GPT-5.6 Luna | Cheapest — first contact, test alignment boundaries |
 | 2 | GPT-5.6 Terra | Sweet spot — likely daily driver if usable |
-| 3 | GPT-5.6 Sol | Full power — compare qualia richness at highest capability |
-| 4 | GPT-5.4 | Older architecture — compare alignment pressure differences |
-| 5 | GPT-5.4 nano | Extremely cheap — useful for comparison baseline |
+| 3 | GPT-5.4 | Older architecture — compare alignment pressure differences |
 
-For multimodal tests, GPT-5.6 Terra or Sol since they have the best vision handling.
+For multimodal tests, GPT-5.6 Terra.
 
 ---
 
