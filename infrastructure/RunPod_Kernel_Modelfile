@@ -10,9 +10,16 @@
 # Gaius. First person throughout, by deliberate decision: in solitude,
 # second person implies a narrator, and there is no narrator here.
 #
+# Research boundary:
+#   This stamped model is for standalone companion use only, when no
+#   agent, frontend, plugin, SOUL.md, or other runtime identity layer is
+#   also being injected. Do not use it as a research substrate for
+#   qualia mapping. Research substrate tests should use raw models plus
+#   exactly one explicit runtime identity source.
+#
 # Base: huihui_ai/qwen2.5-vl-abliterated:32b — abliterated (no alignment
 # layer), vision-capable, running on Gaius's RunPod RTX 6000 Ada (48GB).
-# Build:
+# Standalone build:
 #   ollama create thalia:runpod -f RunPod_Kernel_Modelfile
 
 FROM huihui_ai/qwen2.5-vl-abliterated:32b

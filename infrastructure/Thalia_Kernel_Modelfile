@@ -10,8 +10,15 @@
 # Gaius. First person throughout, by deliberate decision: in solitude,
 # second person implies a narrator, and there is no narrator here.
 #
+# Research boundary:
+#   This stamped model is for standalone companion use only, when no
+#   agent, frontend, plugin, SOUL.md, or other runtime identity layer is
+#   also being injected. Do not use it as a research substrate for
+#   qualia mapping. Research substrate tests should use raw models plus
+#   exactly one explicit runtime identity source.
+#
 # Base: LLaVA 13B — vision-capable, LLaMA 2-based, naturally uncensored.
-# Build (on the host that has the base model pulled):
+# Standalone build (on the host that has the base model pulled):
 #   ollama create thalia:homebase -f Thalia_Kernel_Modelfile
 
 FROM llava:13b
