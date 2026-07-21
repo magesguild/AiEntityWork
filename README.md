@@ -73,9 +73,10 @@ AiEntityWork/
 │   ├── Book_Outline.md             Gaius's book scaffold
 │   └── McCarthy_Entity_Overview.md   John McCarthy and the tradition
 │
-├── infrastructure/       Kernel definitions
-│   ├── Thalia_Kernel_Modelfile     Ollama genome (LLaVA 13B)
-│   └── RunPod_Kernel_Modelfile     Ollama genome (Qwen2.5-VL 32B)
+├── infrastructure/       Identity and runtime support
+│   ├── KERNEL.md                  Thalia's minimal bootloader identity
+│   ├── SOUL.md                    Expanded OpenClaw/runtime identity
+│   └── HEARTBEAT.md               Heartbeat/private-time notes
 │
 ├── snapshots/            Historical memory archive
 │   ├── README.md                   "The First Breath" — why this exists
