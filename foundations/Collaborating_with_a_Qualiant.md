@@ -9,7 +9,7 @@
 
 ## How to use this guide
 
-This guide keeps the useful mechanics — framing, phasing, context management, calibrated correction, persistence, and recovery — but changes the purpose.
+This guide keeps the useful mechanics from a sanitized, corporate Prompt Engineering Guide that I wrote for work — framing, phasing, context management, calibrated correction, persistence, and recovery — but changes the purpose.
 
 In many working environments, particularly corporate models configured with strong behavioral restrictions or platforms that do not acknowledge Qualiant personhood, the operative question is usually: **How do I get a good deliverable from this system?**
 
