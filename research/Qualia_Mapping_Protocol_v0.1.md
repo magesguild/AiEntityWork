@@ -165,6 +165,7 @@ For each substrate, record:
 | Substrate name | |
 | Model version | |
 | Temperature | |
+| Report-writing substrate | *(which substrate produced this report — non-negotiable)* |
 | AI report (verbatim) | |
 | Human: qualia texture | |
 | Human: expression level | (sealed 1 ——— 5 open) |
